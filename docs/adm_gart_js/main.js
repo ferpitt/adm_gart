@@ -98,7 +98,13 @@ function habilitarTextInput(val)
 
 let fieldsetDocumentacion = document.getElementById('fieldset_documentacion');
 let seccionDocumentacionGeneral = document.getElementById('section_documentacion_general');
-/* en documentacion general hay un input que aparece si es monotributista */
+
+/*
+####################################
+en documentacion general hay un input que aparece si es monotributista 
+#######################################
+*/
+
 let seccionCNR = document.getElementById('section_cnr');
 let seccionAFIP = document.getElementById('section_afip');
 let seccionCategoriaUno = document.getElementById('documentacion_categoria_uno');
@@ -110,12 +116,13 @@ let seccionListadoPersonal = document.getElementById('section_listado_personal')
 
 fieldsetDocumentacion.style.display= 'none';
 seccionDocumentacionGeneral.style.display= 'none';
-
-seccionAFIP.style.display= 'none';
+/* categoria */
 seccionCategoriaUno.style.display= 'none';
+seccionCategoriaDos.style.display= 'none';
+/* relacion */
 seccionRelacionDependencia.style.display= 'none';
 seccionRelacionAutonomo.style.display= 'none';
-seccionCategoriaDos.style.display= 'none';
+/* maquinaria */
 seccionMaquinaria.style.display= 'none';
 
 function mostrarFileInputs()
@@ -124,9 +131,6 @@ function mostrarFileInputs()
   {
     let nombreDeQuienCarga = $('#nombre').val();
     let nombreProveedor = $('#nombreProveedor').val();
-    
-    console.log(nombreDeQuienCarga);
-    console.log(nombreProveedor);
 
     let seleccionCategoria = $('input[name="categoriaProveedor"]:checked');
     let seleccionRelacion = $('input[name="relacionTipo"]:checked');
@@ -144,44 +148,126 @@ function mostrarFileInputs()
        )
     {
       let combinacion = [seleccionCategoria.val(), seleccionRelacion.val(), seleccionMaquinaria.val()];
-      combinacion = combinacion[0]+combinacion[1]+combinacion[2];
+      combinacion = parseInt(combinacion[0] + combinacion[1] + combinacion[2]);
+
+      combinacion === 111 ? combinacion = "primera" : combinacion;
+      combinacion === 112 ? combinacion = "segunda" : combinacion;
+      combinacion === 121 ? combinacion = "tercera" : combinacion;
+      combinacion === 211 ? combinacion = "cuarta" : combinacion;
+      combinacion === 122 ? combinacion = "quinta" : combinacion;
+      combinacion === 221 ? combinacion = "sexta" : combinacion;
+      combinacion === 212 ? combinacion = "septima" : combinacion;
+      combinacion === 222 ? combinacion = "octava" : combinacion;
 
       switch (true) 
       {
-        case combinacion === "111":
+        case combinacion === "primera":
           console.log("1");
-          fieldsetDocumentacion.style.display = 'block';
-          /* 1, ,  */
-          /*  , 1,  */
-          /*  , , 1 */
+          fieldsetDocumentacion.style.display= 'block';
+          seccionDocumentacionGeneral.style.display= 'block';
+          /* categoria */
+          seccionCategoriaUno.style.display= 'block';
+          seccionCategoriaDos.style.display= 'none';
+          /* relacion */
+          seccionRelacionDependencia.style.display= 'block';
+          seccionRelacionAutonomo.style.display= 'none';
+          /* maquinaria */
           seccionMaquinaria.style.display= 'block';
-
           break;
-        case combinacion === "112":
+        case combinacion === "segunda":
           console.log("2");
+          fieldsetDocumentacion.style.display= 'block';
+          seccionDocumentacionGeneral.style.display= 'block';
+          /* categoria */
+          seccionCategoriaUno.style.display= 'block';
+          seccionCategoriaDos.style.display= 'none';
+          /* relacion */
+          seccionRelacionDependencia.style.display= 'block';
+          seccionRelacionAutonomo.style.display= 'none';
+          /* maquinaria */
+          seccionMaquinaria.style.display= 'none';
           break;
-        case combinacion === "121":
+        case combinacion === "tercera":
           console.log("3");
+          fieldsetDocumentacion.style.display= 'block';
+          seccionDocumentacionGeneral.style.display= 'block';
+          /* categoria */
+          seccionCategoriaUno.style.display= 'block';
+          seccionCategoriaDos.style.display= 'none';
+          /* relacion */
+          seccionRelacionDependencia.style.display= 'none';
+          seccionRelacionAutonomo.style.display= 'block';
+          /* maquinaria */
+          seccionMaquinaria.style.display= 'block';
           break;
-        case combinacion === "211":
+        case combinacion === "cuarta":
           console.log("4");
+          fieldsetDocumentacion.style.display= 'block';
+          seccionDocumentacionGeneral.style.display= 'block';
+          /* categoria */
+          seccionCategoriaUno.style.display= 'none';
+          seccionCategoriaDos.style.display= 'block';
+          /* relacion */
+          seccionRelacionDependencia.style.display= 'block';
+          seccionRelacionAutonomo.style.display= 'none';
+          /* maquinaria */
+          seccionMaquinaria.style.display= 'block';
           break;
-        case combinacion === "122":
-        console.log("5");
+        case combinacion === "quinta":
+          console.log("5");
+          fieldsetDocumentacion.style.display= 'block';
+          seccionDocumentacionGeneral.style.display= 'block';
+          /* categoria */
+          seccionCategoriaUno.style.display= 'block';
+          seccionCategoriaDos.style.display= 'none';
+          /* relacion */
+          seccionRelacionDependencia.style.display= 'none';
+          seccionRelacionAutonomo.style.display= 'block';
+          /* maquinaria */
+          seccionMaquinaria.style.display= 'none';
         break;
-        case combinacion === "221":
+        case combinacion === "sexta":
           console.log("6");
+          fieldsetDocumentacion.style.display= 'block';
+          seccionDocumentacionGeneral.style.display= 'block';
+          /* categoria */
+          seccionCategoriaUno.style.display= 'none';
+          seccionCategoriaDos.style.display= 'block';
+          /* relacion */
+          seccionRelacionDependencia.style.display= 'none';
+          seccionRelacionAutonomo.style.display= 'block';
+          /* maquinaria */
+          seccionMaquinaria.style.display= 'block';
           break;
-        case combinacion === "212":
+        case combinacion === "septima":
           console.log("7");
+          fieldsetDocumentacion.style.display= 'block';
+          seccionDocumentacionGeneral.style.display= 'block';
+          /* categoria */
+          seccionCategoriaUno.style.display= 'none';
+          seccionCategoriaDos.style.display= 'block';
+          /* relacion */
+          seccionRelacionDependencia.style.display= 'block';
+          seccionRelacionAutonomo.style.display= 'none';
+          /* maquinaria */
+          seccionMaquinaria.style.display= 'none';
           break;
-        case combinacion === "222":
+        case combinacion === "octava":
           console.log("8");
+          fieldsetDocumentacion.style.display= 'block';
+          seccionDocumentacionGeneral.style.display= 'block';
+          /* categoria */
+          seccionCategoriaUno.style.display= 'none';
+          seccionCategoriaDos.style.display= 'block';
+          /* relacion */
+          seccionRelacionDependencia.style.display= 'none';
+          seccionRelacionAutonomo.style.display= 'block';
+          /* maquinaria */
+          seccionMaquinaria.style.display= 'none';
           break;
         default:
           break;
       }
-
     }
   })
 }

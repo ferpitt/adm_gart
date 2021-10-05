@@ -67,7 +67,7 @@ formPrueba.addEventListener('submit', (evento) => {
 /*           $.ajax({
           contentType: 'application/json',
           type: "POST",
-              url: "#",
+              url: "https://prod-06.westus.logic.azure.com:443/workflows/5611cc15ba02491eb506c34ce678478c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=o_4ZHd3wLoJ-sm4b1PNnpol5uJkq9WFdCs1UVZle0I0",
               data: JSON.stringify(formData),
           success: function(){
             $("postResult").val("Success");

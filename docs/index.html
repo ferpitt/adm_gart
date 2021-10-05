@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Documentación</title>
+    <link rel="stylesheet" href="adm_gart_css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<section id="form_principal">
+    <h1>Ingreso al edificio 955 Belgrano Office</h1>
+
+    <form method="POST" enctype="multipart/form-data" name="formProveedor" id="formProveedor">
+
+<!-- 
+#################################################################################################################
+#################################################################################################################
+                                                                    SECCION DATOS CONTACTO
+#################################################################################################################
+#################################################################################################################
+-->
+        
+        <fieldset id="fieldset_datos_de_contacto">
+            <legend>Datos de contacto</legend>
+            <!-- Nombre de quién completa -->
+            <label for="nombre">Su nombre completo </label><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Juan Perez" class="single_line_text_input">
+            <br>
+
+            <!-- Correo electrónico de quién completa -->
+            <label for="email">Su correo electrónico </label><br>
+            <input type="email" id="email" name="email" placeholder="juanperez@mail.com">
+            <br>               
+        </fieldset>
+
+<!-- 
+#################################################################################################################
+#################################################################################################################
+                                                                    SECCION DATOS PROVEEDOR
+#################################################################################################################
+#################################################################################################################
+-->
+
+        <fieldset id="fieldset_datos_de_proveedor">
+            <legend>Datos de la empresa proveedora</legend>
+            <!-- Nombre de la empresa proveedora -->
+            <label for="nombreProveedor">Nombre de la empresa proveedora </label><br>
+            <input type="text" id="nombreProveedor" name="nombreProveedor" placeholder="JP asociados">
+            <br>
+
+            <!-- CUIT de la empresa proveedora -->
+            <label for="cuitProveedor">Número de CUIT de la empresa proveedora </label><br>
+            <input type="number" id="cuitProveedor" name="cuitProveedor" placeholder="20111111119"><br>
+
+            <!-- ¿Qué clase de servicio prestará? -->
+            <label for="categoriaProveedor">¿Qué clase de servicio prestará?</label>
+            <section id="categoriaProveedor">
+                <input type="radio" id="categoriaProveedor_uno" name="categoriaProveedor" value=1 class="radio_circle">
+                <label for="categoriaProveedor_uno" id="categoriaProveedor_uno_label" class="radio_option">Obras internas o trabajos de gran consideración.</label>
+                <input type="radio" id="categoriaProveedor_dos" name="categoriaProveedor" value=2 class="radio_circle">
+                <label for="categoriaProveedor_dos" id="categoriaProveedor_dos_label" class="radio_option">Limpieza, abonos de mantenimiento, seguridad, prestación de servicios.</label>
+                <br>
+            </section>
+
+            <!-- Tipo de relación -->
+            <label for="relacionTipo">¿Que tipo de relación mantiene? </label>
+            <section id="relacionTipo">
+                <input type="radio" id="relacionTipo_uno" name="relacionTipo" value=1 class="radio_circle">
+                <label for="relacionTipo_uno" id="relacionTipo_uno_label" class="radio_option">Relación de dependencia</label>
+                <input type="radio" id="relacionTipo_dos" name="relacionTipo" value=2 class="radio_circle">
+                <label for="relacionTipo_dos" id="relacionTipo_dos_label" class="radio_option">Autónomo (Monotributista)</label>
+                <br>
+            </section>
+
+            <!-- uso de autoelevadores, maquinaria -->
+            <label for="usoMaquinaria">¿Hará uso de autoelevadores, maquinarias y/o equipos propios? </label>
+            <section id="usoMaquinaria">
+                <input type="radio" id="usoMaquinaria_uno" name="usoMaquinaria" value=1 class="radio_circle">
+                <label for="usoMaquinaria_uno" id="usoMaquinaria_uno_label" class="radio_option">Sí</label>
+                <input type="radio" id="usoMaquinaria_dos" name="usoMaquinaria" value=2 class="radio_circle">
+                <label for="usoMaquinaria_dos" id="usoMaquinaria_dos_label" class="radio_option">No</label>
+                <br>
+            </section>
+        </fieldset>
+
+<!-- 
+#################################################################################################################
+#################################################################################################################
+                                                                    SECCION DATOS LOCATARIO
+#################################################################################################################
+#################################################################################################################
+-->
+
+        <fieldset id="fieldset_datos_de_locatario">
+            <legend>Datos de la empresa locataria</legend>
+
+            <!-- Nombre del referente de la empresa locataria -->
+            <label for="nombreReferente">Nombre del referente de la empresa locataria </label><br>
+            <input type="text" id="nombreReferente" name="nombreReferente" placeholder="John Smith">
+            <br>
+
+            <!-- Dirección de correo electrónico del referente de la empresa locataria -->
+            <label for="emailReferente">Su correo electrónico </label>
+            <input type="email" id="emailReferente" name="emailReferente" placeholder="johnsmith@mail.com">
+            <br>
+
+            <!-- Empresa locataria -->
+            <label for="locatario">Empresa locataria </label>
+            <select id="locatarios" name="locatario" >
+                <option >Seleccione el locatario</option>
+                <option value=1>JPMorgan</option>
+                <option value=2>American Express</option>
+                <option value=3>Logicalis</option>
+                <option value=4>NCR</option>
+                <option value=5>Banco Patagonia</option>
+                <option value=6>Consorcio</option>
+            </select>
+        </fieldset>
+
+<!-- 
+#################################################################################################################
+#################################################################################################################
+                                                                    SECCION COORDINACION TAREAS
+#################################################################################################################
+#################################################################################################################
+-->
+
+        <fieldset id="fieldset_coordinacion_de_tareas">
+            <legend>Coordinación de tareas</legend>
+
+            <!-- 
+                Hacer el informe de fechas más simple
+                    1. viene todo el mes? tiene un período claro de concurrencia?
+                    2. viene días específicos? cuántos? cuáles?        
+            -->
+
+            <!-- Fecha de comienzo de tareas -->
+            <label for="fecha_inicio_tareas">Fecha de comienzo de tareas </label><br>
+            <input type="date" name="fecha_inicio_tareas">
+            <br>
+            <!-- Fecha de finalización de tareas -->
+            <label for="fecha_fin_tareas">Fecha de finalización de tareas </label><br>
+            <input type="date" name="fecha_fin_tareas">
+            <br>
+            <!-- Fecha programada de visita -->
+            <label for="fecha_visita">Fecha programada de visita </label><br>
+            <input type="date" name="fecha_visita">
+            <br>
+
+            <!-- 
+                Comentarios, ampliar porque es poco objetivo 
+            -->
+
+            <label for="comentario">Comentarios </label>
+            <br>
+            <textarea name="comentario" id="comentario" cols="" rows="" placeholder="Ingrese comentarios"></textarea>
+            <br>
+        </fieldset>
+
+<!-- 
+#################################################################################################################
+#################################################################################################################
+                                                                    SECCION DOCUMENTACION GENERAL
+#################################################################################################################
+#################################################################################################################
+-->
+
+        <fieldset 
+            id="fieldset_documentacion">
+            <legend>Documentación</legend>
+            <p>Estimado/a <b id="variable_nombreDeQuienCarga">{nombre}</b> de la empresa <b id="variable_nombreProveedor">{nombreProveedor}</b></p>
+            <p> Le comunicamos que los documentos serán tenidos en cuenta por un plazo de <strong>30 días</strong> posteriores a su fecha de emisión, pasado el plazo y si sus tareas continúan, deberá completar este formulario nuevamente.</p>
+
+<!-- 
+############################################################
+############################################################
+                         SECCION SEGURO ART/SVO
+############################################################
+############################################################
+-->
+            <section 
+                id="section_documentacion_general">
+                <!-- Certificado de cobertura de la ART junto a la Nómina vigente con el personal en relación de dependencia (presentación Mensual). -->
+                <p style="font-size: xx-large;">Cambiar la variable según relación!</p>
+
+                <p>si monotributista:
+                    Certificado del Seguro de Accidentes personales por un valor de $2.000.000 (presentación según actualización periódica) por cada trabajador más $150.000 por fármacos y gastos de sepelio con adicional in-itinere. (Presentación Mensual)
+                   si relacion de dependencia:
+                    Certificado de cobertura
+                </p>
+                <label for="seguro"><p id="seguro_texto_label"></p></label><br>
+                <input type="file" id="ART" name="seguro"><br>
+
+                <!-- comprobante de pago del último mes -->
+                <label for="pagoMonotributo">Comprobante de pago del último mes</label><br>
+                <input type="file" id="pagoMonotributo" name="pagoMonotributo"><br>
+
+                <label for="nomina">Nómina del personal </label><br>
+                <input type="file" id="nomina" name="nomina"><br>
+            </section>
+
+<!-- 
+############################################################
+############################################################
+                         SECCION CNR
+############################################################
+############################################################
+-->
+            <section id="section_cnr">
+                <h4>Cláusulas de no repetición a favor de</h4>
+
+                <label for="CNREdificio" class="cnr_label">Fideicomiso de Administración 955 Belgrano Office CUIT 30-71456030-8</label>
+                <input type="file" id="CNREdificio" name="CNREdificio"><br>
+
+                <label for="CNRRaghsa" class="cnr_label">RAGHSA SA CUIT 30-62088060-0</label>
+                <input type="file" id="CNRRaghsa" name="CNRRaghsa"><br>
+
+                <label for="CNRAssetco" class="cnr_label">ASSETCO  CUIT 30-70774551-3</label>
+                <input type="file" id="CNRAssetco" name="CNRAssetco"><br>
+
+                <label for="CNRadic_uno" class="cnr_label">JP Morgan Services Argentina SRL  CUIT 30-71064707-7</label><br>
+                <input type="file" id="CNRadic_uno" name="CNRadic_uno">
+
+                <label for="CNRadic_dos" class="cnr_label">AMERICAN EXPRESS ARGENTINA SA CUIT 30-57481687-0</label><br>
+                <input type="file" id="CNRadic_dos" name="CNRadic_dos">
+
+                <label for="CNRadic_tres" class="cnr_label">LOGICALIS ARGENTINA SA CUIT 33-62188555-9</label><br>
+                <input type="file" id="CNRadic_tres" name="CNRadic_tres">
+
+                <label for="CNRadic_cuatro" class="cnr_label">NCR ARGENTINA SRL CUIT 30-52530926-2</label><br>
+                <input type="file" id="CNRadic_cuatro" name="CNRadic_cuatro">
+
+                <label for="CNRadic_cinco" class="cnr_label">BANCO PATAGONIA SA CUIT N° 30-50000661-3</label><br>
+                <input type="file" id="CNRadic_cinco" name="CNRadic_cinco"><br>
+            </section>
+
+
+<!-- 
+############################################################
+############################################################
+                         SECCION AFIP
+############################################################
+############################################################
+-->
+
+            <section
+            id="section_afip">
+                <!-- AFIP 931 -->
+                <label for="AFIP931">AFIP 931. (presentación Mensual)</label><br>
+                <input type="file" id="AFIP931" name="AFIP931"><br>
+                <!-- pago AFIP 931 -->
+                <label for="pagoAFIP931">Pago de AFIP 931. (presentación Mensual)</label><br>
+                <input type="file" id="pagoAFIP931" name="pagoAFIP931"><br>          
+            </section>
+
+<!-- 
+##################################################################################################
+##################################################################################################
+                                    SECCION DOCUMENTACION ESPECIFICA
+                                    CATEGORIA -----      UNO      ------
+##################################################################################################
+##################################################################################################
+-->
+
+            <section 
+                class="section_documentacion_default 
+                        section_categoria_uno" 
+                id="documentacion_categoria_uno" >
+
+                <section 
+                    class="relacion_dependencia"
+                    id="section_relacion_dependencia">
+                        <!-- programa de seguridad -->
+                        <label for="programaSeguridad" >Programa de seguridad APROBADO por la ART, Res. 51/97 (obra de larga duración) ó Res. 319/99 (obra de corta duración). (renovar según vigencia)</label>
+                        <input type="file" id="programaSeguridad" name="programaSeguridad" ><br>
+                        <!-- aviso de obra -->
+                        <label for="avisoObra" class="relacion_dependencia">Aviso de Inicio de Obra - Res. SRT 552/2001 Anexo I (renovar según vigencia)</label>
+                        <input type="file" id="avisoObra" name="avisoObra" class="relacion_dependencia"><br>
+                        <!-- protocolo COVID de la empresa -->
+                        <label for="protocoloCovid" >Anexo con las Medidas Preventivas para COVID-19, APROBADO por su ART. (presentación por única vez o según actualización)</label><br>
+                        <input type="file" id="protocoloCovid" name="protocoloCovid" ><br>
+                        <!-- alta temprana AFIP -->
+                        <label for="altaTemprana">Alta temprana en la AFIP del trabajador. (presentación por única vez)</label><br>
+                        <input type="file" id="altaTemprana" name="altaTemprana"><br>
+                        <!-- inducción a obra -->
+                        <label for="inductivaObra">Capacitación inductiva a obra - Realizada por el responsable de H&S de la contratista con fecha de ingreso al Edificio. (Actualización mensual según el cronograma de capacitación del Programa de Seguridad)</label><br>
+                        <input type="file" id="inductivaObra" name="inductivaObra"><br>
+                        <!-- capacitación ante COVID -->
+                        <label for="capacitacionCovid">Capacitación Específica sobre las medidas preventivas para el COVID-19. (presentación Mensual)</label><br>
+                        <input type="file" id="capacitacionCovid" name="capacitacionCovid"><br>
+                        <!-- entrega de EPP -->
+                        <label for="entregaEPP">Registro de entrega de EPP, Res 299/11. (Este debe registrar los EPP específicos de COVID-19. (presentación Semestral)</label><br>
+                        <input type="file" id="entregaEPP" name="entregaEPP"><br>
+                        <!-- checklist de estado de herramientas -->
+                        <label for="estadoHerramientas">Check-list con el estado de las herramientas, tableros y prolongaciones eléctricas, firmado por un responsable de H&S.  (presentación por única vez al momento del ingreso)</label><br>
+                        <input type="file" id="estadoHerramientas" name="estadoHerramientas"><br>
+                        <!-- telefonos de emergencia -->
+                        <p>N° de teléfonos para casos de Emergencia. (presentación por única vez)</p>
+                        <label for="telefonoEmergencia_uno">N° de teléfono de emergencia 1 </label><br>
+                        <input type="number" id="telefonoEmergencia_uno" name="telefonoEmergencia_uno" placeholder="1112345678"><br>
+                        <label for="telefonoEmergencia_dos">N° de teléfono de emergencia 2 </label><br>
+                        <input type="number" id="telefonoEmergencia_dos" name="telefonoEmergencia_dos" placeholder="1112345678"><br>
+                        <label for="telefonoEmergencia_tres">N° de teléfono de emergencia 3 </label><br>
+                        <input type="number" id="telefonoEmergencia_tres" name="telefonoEmergencia_tres" placeholder="1112345678"><br>
+                        <!-- centro medico mas cercano -->
+                        <label for="centroMedico">Centro Médico más cercano al Edificio. (presentación por única vez) </label><br>
+                        <input type="text" id="centroMedico" name="centroMedico" placeholder="Hospital Británico"><br>                    
+                </section>
+
+                <section 
+                    class="relacion_autonomo"
+                    id="section_relacion_autonomo">
+                        <h4>Personal monotributista / autónomo</h4>
+                        <!-- 1)	Constancia de inscripción en AFIP.-->
+                        <label for="inscripcionAfip">Constancia de inscripción en AFIP. (presentación Mensual)</label><br>
+                        <input type="file" id="inscripcionAfip" name="inscripcionAfip"><br>    
+                        <!-- compromiso de uso de EPP -->
+                        <label for="compromisoEPP">Compromiso de uso de EPP. (presentación por única vez).
+                        </label><br>
+                        <input type="file" name="compromisoEPP" id="compromisoEPP"><br>
+                        <!-- induccion monotributista -->
+                        <label for="induccionMonotributista">Capacitación inductiva a la tarea a realizar y específica sobre COVID-19, dictada por un matriculado de H&S. (presentación por única vez).
+                        </label><br>
+                        <input type="file" name="induccionMonotributista" id="induccionMonotributista"><br>
+                        <!-- analisis de trabajo seguro -->
+                        <label for="analisisTrabajoSeguro">Análisis de trabajo seguro (ATS). Firmado por un matriculado en H&S. (presentación por única vez).
+                        </label><br>
+                        <input type="file" name="analisisTrabajoSeguro" id="analisisTrabajoSeguro"><br>
+                        <!-- nota de vinculacion con la parte contratante -->
+                        <label for="notaVinculacion">Nota de vinculación con la parte contratante.  (presentación por única vez). (presentación por única vez).
+                        </label><br>
+                        <input type="file" name="notaVinculacion" id="notaVinculacion"><br>                    
+                </section>
+            </section>
+
+<!-- 
+#################################################################################################
+#################################################################################################
+                                                                     CATEGORIA DOS
+#################################################################################################
+#################################################################################################
+-->
+            <section 
+                class="section_documentacion_default 
+                       section_categoria_dos" 
+                id="documentacion_categoria_dos">
+
+                <h3>Categoría 2 - Proveedores de limpieza, abonos de mantenimiento, seguridad, prestadores de servicios.</h3>
+                     <!-- aviso de obra ART -->
+                    <label for="avisoObra">
+                        <p>Aviso de obra ART (en caso que corresponda a la magnitud y tipo de trabajo)</p>
+                        <ul>
+                            <li> Debe indicar el tipo de mantenimiento /instalación u obra que realice.</li>
+                            <li>Según los requisitos de su aseguradora de riesgo en el trabajo (ART).</li>
+                        </ul>
+                    </label><br>
+                    <input type="file" name="avisoObra" id="avisoObra"><br>
+                    <!-- indicar el tipo de servicio -->
+                    <label for="tipoServicio">Tipo de servicio</label>
+                    <select id="tipoServicio" name="tipoServicio" onchange='habilitarTextInput(this.value);'>
+                        <option hidden>Seleccione el tipo de servicio</option>
+                        <option value=1>Limpieza</option>
+                        <option value=2>Mantenimiento</option>
+                        <option value=3>Seguridad</option>
+                        <option value=4>NCR</option>
+                        <option value=5>Banco Patagonia</option>
+                        <option value=6>Consorcio</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <input type="text" name="tipoServicioOtro" id="otro" style='display:none;' placeholder="Especifique el tipo de servicio"/>
+            </section>  
+
+<!-- 
+#################################################################################################################
+#################################################################################################################
+                                                                    SECCION AUTOELEVADORES y MAAQUINARIA
+#################################################################################################################
+#################################################################################################################
+-->
+            <section 
+                class="section_documentacion_default "
+                id="section_maquinaria">
+                <h3>Documentación para autoelevadores, maquinarias y equipos</h3>
+                    <!-- habilitacion de maquinista -->
+                    <label for="habilitacionMaquinista">Habilitación del maquinista (registro de conductor con categoría de maquinista en equipos especiales)</label><br>
+                    <input type="file" name="habilitacionMaquinista" id="habilitacionMaquinista"><br>
+                    <!-- capacitacion de izaje y seguridad -->
+                    <label for="capacitacionMaquinista">Fotocopia de los registros de capacitación en los temas relacionados con las operaciones de izaje de cargas y seguridad en general del/los choferes/es y ayudantes</label><br>
+                    <input type="file" name="capacitacionMaquinista" id="capacitacionMaquinista"><br>
+                    <!-- habilitacion de maquinaria -->
+                    <label for="habilitacionMaquinaria">Habilitación del Equipo.</label><br>
+                    <input type="file" name="habilitacionMaquinaria" id="habilitacionMaquinaria"><br>
+                    <!-- listado de verificacion del equipo-->
+                    <label for="verificacionMaquinaria">Listado de verificación del equipo (mantenimiento técnico)</label><br>
+                    <input type="file" name="verificacionMaquinaria" id="verificacionMaquinaria"><br>
+                    <!-- seguro de maquinista -->
+                    <label for="seguroMaquinista">Seguro técnico con responsabilidad civil y/o seguro automotriz</label><br>
+                    <input type="file" name="seguroMaquinista" id="seguroMaquinista"><br>
+                    <!-- comprobante de pago electronico -->
+                    <label for="comprobantePagoMaquinista">Comprobante de pago electrónico</label><br>
+                    <input type="file" name="comprobantePagoMaquinista" id="comprobantePagoMaquinista"><br>
+            </section>
+
+<!-- 
+#################################################################################################################
+#################################################################################################################
+                                                                    SECCION LISTADO DE PERSONAL
+#################################################################################################################
+#################################################################################################################
+-->
+            <section 
+                class="section_documentacion_default 
+                       section_listado_personal"
+                id="section_listado_personal">
+                <!-- Especificar qué personas atenderán al edificio -->
+                <label for="lista_personal">Especificar qué personas ingresarán al edificio </label><br>
+                <br>
+                <textarea name="lista_personal" id="lista_personal" cols="" rows="" placeholder="Nombre y apellido, DNI (separados por comas y una persona debajo de otra)"></textarea>
+                <br>
+            </section>
+        </fieldset> 
+                                        <!-- fin de fieldset documentacion -->
+
+<!-- 
+#################################################################################################################
+#################################################################################################################
+                                                                    SECCION INFO COVID
+#################################################################################################################
+#################################################################################################################
+-->
+
+            <fieldset 
+                id="fieldset_info_covid">
+            <legend>Información importante referente a la pandemia COVID-19</legend>
+            <p>Enviando esta información entiende que se debe cumplir con las medidas de higiene y seguridad referentes a COVID-19 que son</p>
+            <ol>
+                <li>Uso obligatorio de barbijo.</li>
+                <li>Uso de alcohol en gel.</li>
+                <li>Lavado frecuente de manos con agua y jabón.</li>
+                <li>Respeto de la distancia física.</li>
+                <li>Evitar contacto con personas que presenten síntomas de gripe o resfrío.</li>
+                <li>Al toser o estornudar taparse con un pañuelo o el pliegue del codo.</li>
+                <li>Acudir al médico en caso de presentar síntomas relacionados con COVID-19.</li>
+            </ol>
+            </fieldset>
+
+            <fieldset 
+                id="fieldset_declaracion_jurada">
+            <legend>Declaración jurada</legend>
+            <p>
+                "Declaro que todo lo indicado anteriormente es cierto y correcto. Presto consentimiento para que el Fideicomiso de Administración 955 Belgrano Office recoja, use y divulgue mis datos personales, para los fines de evaluación para nCoV y conforme a lo establecido en la ley Nro. 25.326. Tomo conocimiento que "Datos Personales" significa cualquier información que pueda ser usada directa o indirectamente, sola o combinada con otra información para identificar un individuo y que en cumplimiento de la ley Nro. 25.326 y las disposiciones dictadas por la Agencia de Acceso a la Información Pública, se me ha informado que
+            <br>
+                El titular de los Datos Personales, tiene la facultad de ejercer el derecho de acceso a los mismos en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto conforme lo establecido en el artículo 14, inciso 3 de la ley Nro. 25.326;
+                El titular de los Datos Personales tiene derecho a que sean rectificados, actualizados y, cuando corresponda, suprimidos."
+            </p>
+            </fieldset>
+  
+        <div 
+            class="buttons_div">
+            <button type="reset" id="reset_button" name="reset">Resetear campos</button>
+            <button id="submit_button" name="submit">Enviar formulario</button>
+        </div>
+     </form>
+</section>
+<script src="adm_gart_js/main.js" text="javascript"></script>
+</body>
+</html>
